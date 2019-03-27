@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "target": "es6",
+    "lib": [
+      "esnext"
+    ],
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "@src/*": ["src/*"]
+    }
+  }
+}

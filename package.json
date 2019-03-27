@@ -1,0 +1,28 @@
+{
+  "name": "bg-splash",
+  "version": "1.0.0",
+  "description": "Downloads and applies background image from Unsplash",
+  "main": "index.ts",
+  "author": "Dan <dan@danitt.com>",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "ts-node -r tsconfig-paths/register ./src/index",
+    "lint": "tslint --project tsconfig.json",
+    "test": "jest"
+  },
+  "dependencies": {
+    "dotenv": "7.0.0",
+    "node-fetch": "2.3.0",
+    "ts-node": "8.0.3",
+    "typescript": "3.3.4000"
+  },
+  "devDependencies": {
+    "@types/jest": "24.0.11",
+    "@types/node": "11.12.0",
+    "jest": "24.5.0",
+    "ts-jest": "24.0.0",
+    "tslint": "5.14.0",
+    "tslint-config-airbnb": "5.11.1"
+  }
+}
