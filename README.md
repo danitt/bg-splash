@@ -19,4 +19,5 @@ e.g. `*/15 * * * * /path/to/this/dir/bg-splash.sh "Runs every 15 minutes"`
 
 # Development
 `$ yarn lint`
+
 `$ yarn test`
