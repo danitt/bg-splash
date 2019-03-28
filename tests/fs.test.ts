@@ -7,7 +7,7 @@ describe('FS tests', () => {
     try {
       await saveBufferToLocal(newBuffer, 'buffertest.jpg');
     } catch (e) {
-      expect(hasError).toBeFalsy();
+      expect(e).toBeFalsy();
     }
     done();
   });
