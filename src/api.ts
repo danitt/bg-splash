@@ -3,7 +3,7 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 // Dependencies
-import fetch from 'node-fetch';
+import nodeFetch from 'node-fetch';
 import * as qs from 'qs';
 
 // Typings
@@ -20,7 +20,7 @@ export async function fetchRandomImage(): Promise<IImage> {
     baseUrl,
     qs.stringify(queryParams),
   ].join('?');
-  const res = await (await fetch(fullUrl)).json();
+  const res = await (await nodeFetch(fullUrl)).json();
   return res;
 }
 
@@ -28,6 +28,7 @@ export async function fetchRawImage(image: IImage): Promise<Buffer> {
   // Prepare query
   const baseUrl = image.urls.raw;
   const queryParams = {
+    fm: 'jpg',  // format
     q: '85',      // quality
     w: '1920',  // width
   };
@@ -36,6 +37,6 @@ export async function fetchRawImage(image: IImage): Promise<Buffer> {
     qs.stringify(queryParams),
   ].join('?');
   // Fetch image as blob
-  const data = await (await fetch(fullUrl)).buffer();
+  const data = await (await nodeFetch(fullUrl)).buffer();
   return data;
 }

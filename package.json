@@ -2,7 +2,7 @@
   "name": "bg-splash",
   "version": "1.0.0",
   "description": "Downloads and applies background image from Unsplash",
-  "main": "index.ts",
+  "main": "src/index.ts",
   "author": "Dan <dan@danitt.com>",
   "license": "UNLICENSED",
   "private": true,
@@ -16,6 +16,7 @@
     "node-fetch": "2.3.0",
     "qs": "6.7.0",
     "ts-node": "8.0.3",
+    "tsconfig-paths": "3.8.0",
     "typescript": "3.3.4000"
   },
   "devDependencies": {
