@@ -2,8 +2,9 @@
 A simple node script intended to download an unsplash image from the official collection and programmatically apply as desktop wallpaper (multiple monitors supported). MacOS Only.
 
 # Installation
-1, Install Dependencies
+1. Install Dependencies
 `$ yarn install`
+
 2. Configure Environment
 - copy .env.example to .env
 - add your unsplash client ID to  access the API (register for free at https://api.unsplash.com)
