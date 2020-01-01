@@ -1,4 +1,11 @@
 #!/bin/sh
+
+# Override HOME dir if provided
+HOME_OVERRIDE=$1
+if [[ -n "$HOME_OVERRIDE" ]]; then
+  HOME=$HOME_OVERRIDE
+fi
+
 # Add node to path
 export PATH="/usr/local/bin:$PATH"
 # Add yarn to path

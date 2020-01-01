@@ -21,3 +21,9 @@ e.g. `*/15 * * * * /path/to/this/dir/bg-splash.sh "Runs every 15 minutes"`
 `$ yarn lint`
 
 `$ yarn test`
+
+# Troubleshooting
+
+## Running as Root
+If your environment requires you to run this script from root, you may need to specify the $HOME directory as follows:
+e.g. `*/15 * * * * /path/to/this/dir/bg-splash.sh /path/to/your/home/dir`
