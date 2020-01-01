@@ -1,5 +1,5 @@
 import { fetchRandomImage, fetchRawImage } from '@src/api';
-import { updateBackground } from '@src/bg';
+import { updateBackgroundTab } from '@src/bg';
 import { saveBufferToLocal } from '@src/fs';
 
 // IIFE to launch script, and enable async/await
@@ -11,7 +11,7 @@ import { saveBufferToLocal } from '@src/fs';
   const imgName = `${randomImage.id}.jpg`;
   await saveBufferToLocal(imageBuffer, imgName);
   // Update background
-  await updateBackground(imgName);
+  await updateBackgroundTab(imgName);
 
   process.exit();
 })();
