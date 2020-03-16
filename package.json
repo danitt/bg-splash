@@ -7,12 +7,16 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "start": "ts-node -r tsconfig-paths/register ./src/index",
+    "start": "yarn fetch:unsplash",
+    "fetch:unsplash": "ts-node -r tsconfig-paths/register ./src/index --source unsplash",
+    "fetch:inspiro": "ts-node -r tsconfig-paths/register ./src/index --source inspiro",
     "lint": "tslint --project tsconfig.json",
     "test": "jest"
   },
   "dependencies": {
+    "@types/minimist": "^1.2.0",
     "dotenv": "8.2.0",
+    "minimist": "^1.2.5",
     "node-fetch": "2.6.0",
     "qs": "6.9.1",
     "ts-node": "8.6.2",
