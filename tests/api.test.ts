@@ -1,5 +1,5 @@
-import { fetchRandomImage, fetchRawImage } from '@src/api';
-import { IImage } from '@src/api.interface';
+import { fetchRandomImage, fetchRawImage } from '@src/unsplash';
+import { IImage } from '@src/unsplash.interface';
 
 xdescribe('Unsplash API tests', () => {
 

@@ -1,4 +1,4 @@
-import { fetchRandomImage, fetchRawImage } from '@src/api';
+import { fetchRandomImage, fetchRawImage } from '@src/unsplash';
 import { updateBackground } from '@src/bg';
 import { saveBufferToLocal } from '@src/fs';
 
@@ -6,12 +6,11 @@ import { saveBufferToLocal } from '@src/fs';
 (async () => {
   // Get random image
   const randomImage = await fetchRandomImage();
-  const imageBuffer = await fetchRawImage(randomImage);
+  const { filename, buffer } = randomImage;
   // Save to local directory
-  const imgName = `${randomImage.id}.jpg`;
-  await saveBufferToLocal(imageBuffer, imgName);
+  await saveBufferToLocal(buffer, filename);
   // Update background
-  await updateBackground(imgName);
+  await updateBackground(filename);
 
   process.exit();
 })();
