@@ -1,4 +1,4 @@
-import { fetchRandomImage, fetchRawImage } from '@src/unsplash';
+import { fetchRandomImage } from '@src/unsplash';
 import { updateBackground } from '@src/bg';
 import { saveBufferToLocal } from '@src/fs';
 
