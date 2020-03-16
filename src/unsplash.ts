@@ -7,9 +7,10 @@ import nodeFetch from 'node-fetch';
 import * as qs from 'qs';
 
 // Typings
-import { IImage } from '@src/api.interface';
+import { IImage } from '@src/unsplash.interface';
+import { ImageObject } from '@src/typings';
 
-export async function fetchRandomImage(): Promise<IImage> {
+export async function fetchImageSrc(): Promise<IImage> {
   // Compose URL
   const baseUrl = `https://api.unsplash.com/photos/random`;
   const queryParams = {
@@ -39,4 +40,13 @@ export async function fetchRawImage(image: IImage): Promise<Buffer> {
   // Fetch image as blob
   const data = await (await nodeFetch(fullUrl)).buffer();
   return data;
+}
+
+export async function fetchRandomImage(): Promise<ImageObject> {
+  const randomImage = await fetchImageSrc();
+  const imageBuffer = await fetchRawImage(randomImage);
+  return {
+    filename: `${randomImage.id}.jpg`,
+    buffer: imageBuffer,
+  };
 }

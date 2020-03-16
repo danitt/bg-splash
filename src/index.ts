@@ -1,17 +1,26 @@
-import { fetchRandomImage, fetchRawImage } from '@src/api';
+import * as minimist from 'minimist';
+
+import { fetchRandomImage as fetchUnsplash } from '@src/unsplash';
+import { fetchRandomImage as fetchInspiro } from '@src/inspiro';
 import { updateBackgroundTab } from '@src/bg';
 import { saveBufferToLocal } from '@src/fs';
+
+// Parse CLI Flags
+const args = minimist(process.argv.slice(2));
+
+// Determine image source
+const sourceFlag = Object.entries(args).find(([key]) => key === 'source');
+const fetchFn = sourceFlag && sourceFlag[1] === 'inspiro' ? fetchInspiro : fetchUnsplash;
 
 // IIFE to launch script, and enable async/await
 (async () => {
   // Get random image
-  const randomImage = await fetchRandomImage();
-  const imageBuffer = await fetchRawImage(randomImage);
+  const randomImage = await fetchFn();
+  const { filename, buffer } = randomImage;
   // Save to local directory
-  const imgName = `${randomImage.id}.jpg`;
-  await saveBufferToLocal(imageBuffer, imgName);
+  await saveBufferToLocal(buffer, filename);
   // Update background
-  await updateBackgroundTab(imgName);
+  await updateBackgroundTab(filename);
 
   process.exit();
 })();

@@ -1,10 +1,11 @@
-import { fetchRandomImage, fetchRawImage } from '@src/api';
-import { IImage } from '@src/api.interface';
+import { fetchRandomImage } from '@src/unsplash';
+import { IImage } from '@src/unsplash.interface';
+import { ImageObject } from '@src/typings';
 
 xdescribe('Unsplash API tests', () => {
 
   test('Should fetch random image from API', async (done) => {
-    let randomImage: IImage;
+    let randomImage: ImageObject;
     try {
       randomImage = await fetchRandomImage();
     } catch (e) {
@@ -14,17 +15,4 @@ xdescribe('Unsplash API tests', () => {
     expect(typeof randomImage).toBe('object');
     done();
   });
-
-  test('Should fetch image buffer from api', async (done) => {
-    let imgBuffer: Buffer;
-    try {
-      const randomImage: IImage = await fetchRandomImage();
-      imgBuffer = await fetchRawImage(randomImage);
-    } catch (e) {
-      expect(e).toBeFalsy();
-    }
-    expect(Buffer.isBuffer(imgBuffer)).toBeTruthy();
-    done();
-  });
-
 });
