@@ -9,7 +9,7 @@ import { saveBufferToLocal } from '@src/fs';
 const args = minimist(process.argv.slice(2));
 
 // Determine image source
-const sourceFlag = Object.entries(args).find(([key]) => key === 'source')
+const sourceFlag = Object.entries(args).find(([key]) => key === 'source');
 const fetchFn = sourceFlag && sourceFlag[1] === 'inspiro' ? fetchInspiro : fetchUnsplash;
 
 // IIFE to launch script, and enable async/await
