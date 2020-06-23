@@ -21,7 +21,9 @@ A simple node script intended to download background wallpapers from either Unsp
 
 2. Scheduled execution
 If you wish to have this script run periodically in the background, simply set a CRON job to run the provided "bg-splash.sh" at the desired interval
-e.g. `*/15 * * * * /path/to/this/dir/bg-splash.sh "Runs every 15 minutes"`
+e.g. `*/15 * * * * /path/to/this/dir/bg-splash.sh`
+  or with logging:
+    `*/15 * * * * /path/to/this/dir/bg-splash.sh > /path/to/logs/bg-splash.log 2>&1`
 
 
 # Development
